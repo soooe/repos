@@ -32,6 +32,7 @@ public class ControlString {
 	 * -入力文字列に半角英数字でない文字が含まれるとき<br>
 	 * -文字数が規定値を超えるとき<br>
 	 * -文字数が0のとき<br>
+	 * -引数がnullのとき
 	 * @param inputStr 入力文字列
 	 * @return 全ての文字列リスト
 	 */
@@ -73,6 +74,10 @@ public class ControlString {
 	 */
 	private boolean shuffleStringPart(String startStr, String targetStr, List<String> result){
 		
+		if (startStr == null) {return false;}
+		if (targetStr == null) {return false;}
+		if (result == null) {return false;}
+		
 		/* 
 		 * シャッフル対象文字列が1文字の場合、先頭文字列をつけてリストに追加して終了
 		 * 例　startStr : abc, targetStr : x　の場合
@@ -97,7 +102,7 @@ public class ControlString {
 		 */
 		for (int i = 0; i < targetStr.length(); i++) {
 			if (0 < i) {
-				if (topCharList[0] == topCharList[i]) {continue;}						/* 同一の文字を先頭に指定するのは一度だけ */
+				if (topCharList[0] == topCharList[i]) {continue;}
 				else {
 					char tmp = topCharList[0];
 					topCharList[0] = topCharList[i];
@@ -120,14 +125,25 @@ public class ControlString {
 	 */
 	private boolean isInputRight(String inputStr) {
 		
-		/* 文字数が最大値を超えていたらエラー */
+		/* 入力がnullならエラー */
 		
+		if (inputStr == null) {
+			System.out.println(Message.ERROR_INPUT_NULL);
+			return false;
+		}
+		
+		/* 文字数が1以下、または最大値を超えていたらエラー */
+		
+		if (inputStr.length() < 1) {
+			System.out.println(Message.ERROR_INPUT_0);
+			return false;
+		}
 		if (MAX_INPUT_SIZE < inputStr.length()) {
 			System.out.println(Message.ERROR_INPUT_SIZE_OVER + MAX_INPUT_SIZE);
 			return false;
 		}
 		
-		/* 文字数が0、または半角英数字以外の文字が含まれていたらエラー */
+		/* 半角英数字以外の文字が含まれていたらエラー */
 		
 		if (!(inputStr.matches("[0-9a-zA-Z]+"))) {
 			System.out.println(Message.ERROR_INPUT_TYPE);
