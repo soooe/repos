@@ -18,8 +18,7 @@ public class App {
         scanner.close();
 
         /* 入力された文字列のシャッフルパターンをリストアップ */
-        CharacterEnumerator cs = new CharacterEnumerator();
-        List<String> retList = cs.shuffleString(userInput);
+        List<String> retList = CharacterEnumerator.shuffleString(userInput);
 
         /* シャッフルパターンリストの表示 */
         retList.stream().forEach(System.out::println);
