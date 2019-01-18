@@ -17,6 +17,9 @@ public class App {
         final String userInput = scanner.next();
         scanner.close();
 
+        /* 入力値チェック */
+        (new Validator(10)).validate(userInput);
+
         /* 入力された文字列のシャッフルパターンをリストアップ */
         List<String> retList = CharacterEnumerator.shuffleString(userInput);
 
