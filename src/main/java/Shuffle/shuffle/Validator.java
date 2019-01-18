@@ -17,7 +17,7 @@ public class Validator {
         if (inputStr == null) {
             fail(ERROR_INPUT_NULL);
         }
-        if (inputStr.length() == 0) {
+        if (inputStr.isEmpty()) {
             fail(ERROR_EMPTY_STRING);
         }
         if (maxInputSize < inputStr.length()) {
