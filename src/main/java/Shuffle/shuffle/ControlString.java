@@ -74,10 +74,6 @@ public class ControlString {
 	 */
 	private boolean shuffleStringPart(String startStr, String targetStr, List<String> result){
 		
-		if (startStr == null) {return false;}
-		if (targetStr == null) {return false;}
-		if (result == null) {return false;}
-		
 		/* 
 		 * シャッフル対象文字列が1文字の場合、先頭文字列をつけてリストに追加して終了
 		 * 例　startStr : abc, targetStr : x　の場合
