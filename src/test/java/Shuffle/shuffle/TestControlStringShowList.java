@@ -28,7 +28,7 @@ public class TestControlStringShowList
 	ByteArrayOutputStream out;
 	
 	/** 正しい出力内容 */
-	String expected = "";
+	String expected;
     
     public TestControlStringShowList( String testName ){
         super( testName );

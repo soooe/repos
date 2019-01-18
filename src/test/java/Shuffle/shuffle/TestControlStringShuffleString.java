@@ -15,6 +15,9 @@ public class TestControlStringShuffleString
 {	
 	/** テスト対象クラスのオブジェクト */
 	private ControlString testCS;	
+	
+	/** シャッフル結果格納用リスト */
+	List<String> retList;
     
     public TestControlStringShuffleString( String testName )
     {
@@ -29,62 +32,121 @@ public class TestControlStringShuffleString
     protected void setUp() {
     	testCS = new ControlString();
     }
-
+    
     /**
-     * 文字列シャッフルの入力文字列を変化させてテストする
+     * 引数がnullのとき
      */
-    public void testApp()
-    {
-    	/* 引数がnullのとき */
-    	
-    	List<String> retList = testCS.shuffleString(null);
+    public void testNullString() {
+    	retList = testCS.shuffleString(null);
     	assertTrue(retList.isEmpty());
-    	
-    	/* 引数が空文字列のとき */
-    	
-    	retList = testCS.shuffleString("");
-    	assertTrue(retList.isEmpty());
-    	
-    	/* 引数に半角英数字以外の文字が含まれるとき */
-    	
+    }
+    
+    /**
+     * 引数に半角英数字以外の文字が含まれるとき
+     */
+    public void testStringKind() {
     	retList = testCS.shuffleString("aあ");
     	assertTrue(retList.isEmpty());
-    	
-    	/* 引数が1文字のとき */
-    	
+    }
+    
+    /**
+     * 引数が空文字のとき
+     */
+    public void testEmptyString() {
+    	retList = testCS.shuffleString("");
+    	assertTrue(retList.isEmpty());
+    }
+    
+    /**
+     * 引数が1文字のとき
+     */
+    public void testString1() {
     	retList = testCS.shuffleString("a");
     	assertThat(
 				retList, 
 				is(containsInAnyOrder("a")));
+    }
+    
+    /**
+     * 引数が2文字のとき
+     */
+    public void testString2() {
     	
-    	/* 同一の文字が複数個含まれるとき */
+    	/* 同一の文字のとき */
     	
-    	retList = testCS.shuffleString("a11");
+    	retList = testCS.shuffleString("aa");
     	assertThat(
 				retList, 
-				is(containsInAnyOrder("a11", "11a", "1a1")));
+				is(containsInAnyOrder("aa")));
     	
-    	/* 引数の文字数が最大値(10)のとき */
+    	/* 異なる文字のとき */
     	
-    	String inputStr = new String("");
-    	char addChar = 'a';
-    	int listNum = 1;
-    	for (int i = 0; i < ControlString.MAX_INPUT_SIZE; i++) {
-    		inputStr += String.valueOf(addChar);
-    		addChar += 1;
-    		listNum = listNum * (i + 1);
-    	}
-    	retList = testCS.shuffleString(inputStr);
-    	assertEquals(listNum, retList.size());						
-    	
-    	/* 引数の文字数が最大値 + 1のとき */
-    	
-    	inputStr += String.valueOf(addChar);
-    	retList = testCS.shuffleString(inputStr);
-    	assertTrue(retList.isEmpty());
-    	
+    	retList = testCS.shuffleString("ab");
+    	assertThat(
+				retList, 
+				is(containsInAnyOrder("ab", "ba")));
     	
     }
     
+    /**
+     * 引数が3文字のとき
+     */
+    public void testString3() {
+    	
+    	/* 全て同一の文字のとき */
+    	
+    	retList = testCS.shuffleString("aaa");
+    	assertThat(
+				retList, 
+				is(containsInAnyOrder("aaa")));
+    	
+    	/* 異なる文字を1つだけ含むとき */
+    	
+    	retList = testCS.shuffleString("aab");
+    	assertThat(
+				retList, 
+				is(containsInAnyOrder("aab", "aba", "baa")));
+    	
+    	/* 全て異なる文字のとき */
+    	
+    	retList = testCS.shuffleString("abc");
+    	assertThat(
+				retList, 
+				is(containsInAnyOrder("abc", "acb", "bac", "bca", "cab", "cba")));
+    }
+   
+    /**
+     * 引数の文字数が最大値のとき
+     */
+    public void testStringMax() {
+    	
+    	/* 
+    	 * abc...zの繰り返し文字列を作成(文字数 : MAX_INPUT_SIZE) 
+    	 * MAX_INPUT_SIZE = 10なので、同一の文字は含まれない
+    	 * */
+    	
+    	String inputStr = Constants.MakeABCString(ControlString.MAX_INPUT_SIZE);
+    	retList = testCS.shuffleString(inputStr);
+    	
+    	/* 同一の文字は含まれないので、リストサイズ = 文字数の階乗 */
+    	
+    	assertEquals(
+    			Constants.factorial(ControlString.MAX_INPUT_SIZE), 
+    			retList.size());	
+    }
+    
+    /**
+     * 引数の文字数が最大値 + 1のとき
+     */
+    public void testStringOverMax() {
+    	
+    	String inputStr = Constants.MakeABCString(ControlString.MAX_INPUT_SIZE + 1);
+    	retList = testCS.shuffleString(inputStr);
+    	
+    	/* 許容される文字数最大値を超えるので、空リストが返る */
+    	
+    	assertTrue(retList.isEmpty());
+    	
+    }  
     
 }
