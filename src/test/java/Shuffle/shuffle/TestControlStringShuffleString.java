@@ -10,19 +10,20 @@ import static org.hamcrest.Matchers.*;
 /**
  * 文字列シャッフル機能の単体テストクラス
 */
-public class AppTest 
+public class TestControlStringShuffleString 
     extends TestCase
 {	
-	private ControlString testCS;	//!<テスト対象クラスのオブジェクト
+	/** テスト対象クラスのオブジェクト */
+	private ControlString testCS;	
     
-    public AppTest( String testName )
+    public TestControlStringShuffleString( String testName )
     {
         super( testName );
     }
 
     public static Test suite()
     {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( TestControlStringShuffleString.class );
     }
     
     protected void setUp() {
@@ -84,4 +85,6 @@ public class AppTest
     	
     	
     }
+    
+    
 }

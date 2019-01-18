@@ -49,12 +49,6 @@ public class ControlString {
 		
 		if (shuffleStringPart("", inputStr, allShuffledList)) {;}
 		
-		/* シャッフルパターンを全て表示 */
-		
-		for (int i = 0; i < allShuffledList.size(); i++) {
-			System.out.println(allShuffledList.get(i));
-		}
-		
 		return allShuffledList;
 	}
 	
@@ -147,6 +141,22 @@ public class ControlString {
 		}
 		
 		/* それ以外ならエラーでない */
+		
+		return true;
+	}
+	
+	/**
+	 * 標準出力にリストを表示する
+	 * @param 文字列リスト
+	 * @return 関数の結果（true:正常終了、false:引数がnull）
+	 */
+	public boolean showList(List<String> list) {
+		
+		if (list == null) {return false;}
+		
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
 		
 		return true;
 	}

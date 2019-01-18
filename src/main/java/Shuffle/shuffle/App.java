@@ -18,11 +18,17 @@ public class App {
 		String usrInput = scan.next();
 		scan.close();
 		
-		/* 入力された文字列のシャッフルパターンを表示 */
+		/* 入力された文字列のシャッフルパターンをリストアップ */
 		
 		ControlString cs = new ControlString();
 		List<String> retList = cs.shuffleString(usrInput);
+		
+		/* シャッフルパターンリストの表示 */
+		
+		if (!cs.showList(retList)) {return;}
 		retList.clear();
+		
+		return;
 		
 	}
 	
