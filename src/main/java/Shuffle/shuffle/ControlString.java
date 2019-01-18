@@ -122,18 +122,14 @@ public class ControlString {
 			return false;
 		}
 		
-		/* 文字数が1以下、または最大値を超えていたらエラー */
+		/* 文字数が最大値を超えていたらエラー */
 		
-		if (inputStr.length() < 1) {
-			System.out.println(Message.ERROR_INPUT_0);
-			return false;
-		}
 		if (MAX_INPUT_SIZE < inputStr.length()) {
 			System.out.println(Message.ERROR_INPUT_SIZE_OVER + MAX_INPUT_SIZE);
 			return false;
 		}
 		
-		/* 半角英数字以外の文字が含まれていたらエラー */
+		/* 文字数が1以下、または半角英数字以外の文字が含まれていたらエラー */
 		
 		if (!(inputStr.matches("[0-9a-zA-Z]+"))) {
 			System.out.println(Message.ERROR_INPUT_TYPE);
