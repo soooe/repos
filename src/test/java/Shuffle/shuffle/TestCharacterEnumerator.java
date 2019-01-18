@@ -1,6 +1,7 @@
 package Shuffle.shuffle;
 
 import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -10,27 +11,27 @@ import static org.hamcrest.Matchers.*;
 /**
  * 文字列シャッフル機能の単体テストクラス
 */
-public class TestControlStringShuffleString 
+public class TestCharacterEnumerator
     extends TestCase
 {	
 	/** テスト対象クラスのオブジェクト */
-	private ControlString testCS;	
+	private CharacterEnumerator testCS;
 	
 	/** シャッフル結果格納用リスト */
 	List<String> retList;
     
-    public TestControlStringShuffleString( String testName )
+    public TestCharacterEnumerator(String testName )
     {
         super( testName );
     }
 
     public static Test suite()
     {
-        return new TestSuite( TestControlStringShuffleString.class );
+        return new TestSuite( TestCharacterEnumerator.class );
     }
     
     protected void setUp() {
-    	testCS = new ControlString();
+    	testCS = new CharacterEnumerator();
     }
     
     /**
@@ -125,13 +126,13 @@ public class TestControlStringShuffleString
     	 * MAX_INPUT_SIZE = 10なので、同一の文字は含まれない
     	 * */
     	
-    	String inputStr = Constants.MakeABCString(ControlString.MAX_INPUT_SIZE);
+    	String inputStr = Constants.MakeABCString(CharacterEnumerator.MAX_INPUT_SIZE);
     	retList = testCS.shuffleString(inputStr);
     	
     	/* 同一の文字は含まれないので、リストサイズ = 文字数の階乗 */
     	
     	assertEquals(
-    			Constants.factorial(ControlString.MAX_INPUT_SIZE), 
+    			Constants.factorial(CharacterEnumerator.MAX_INPUT_SIZE),
     			retList.size());	
     }
     
@@ -140,7 +141,7 @@ public class TestControlStringShuffleString
      */
     public void testStringOverMax() {
     	
-    	String inputStr = Constants.MakeABCString(ControlString.MAX_INPUT_SIZE + 1);
+    	String inputStr = Constants.MakeABCString(CharacterEnumerator.MAX_INPUT_SIZE + 1);
     	retList = testCS.shuffleString(inputStr);
     	
     	/* 許容される文字数最大値を超えるので、空リストが返る */

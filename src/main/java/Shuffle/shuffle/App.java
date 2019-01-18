@@ -9,27 +9,20 @@ import java.util.Scanner;
  */
 public class App {
 
-	public static void main(String[] args) {
-		
-		/* ユーザの入力を受け付ける */
-		
-		System.out.println(Message.REQUEST_INPUT);
-		Scanner scan = new Scanner(System.in);
-		String usrInput = scan.next();
-		scan.close();
-		
-		/* 入力された文字列のシャッフルパターンをリストアップ */
-		
-		ControlString cs = new ControlString();
-		List<String> retList = cs.shuffleString(usrInput);
-		
-		/* シャッフルパターンリストの表示 */
-		
-		if (!cs.showList(retList)) {return;}
-		retList.clear();
-		
-		return;
-		
-	}
-	
+    public static void main(String[] args) {
+
+        /* ユーザの入力を受け付ける */
+        System.out.println(Message.REQUEST_INPUT);
+        final Scanner scanner = new Scanner(System.in);
+        final String userInput = scanner.next();
+        scanner.close();
+
+        /* 入力された文字列のシャッフルパターンをリストアップ */
+        CharacterEnumerator cs = new CharacterEnumerator();
+        List<String> retList = cs.shuffleString(userInput);
+
+        /* シャッフルパターンリストの表示 */
+        retList.stream().forEach(System.out::println);
+    }
+
 }

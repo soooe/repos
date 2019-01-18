@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -13,13 +14,13 @@ import static org.hamcrest.Matchers.*;
 /**
  * リスト表示機能の単体テストクラス
 */
-public class TestControlStringShowList 
+public class TestCharacterEnumeratorShowList
     extends TestCase{
 	
 	private static final String TEST_STRING = "Hello";
 	
 	/** テスト対象クラスのオブジェクト */
-	private ControlString testCS;	
+	private CharacterEnumerator testCS;
 	
 	/** showListメソッドに渡すリスト */
 	private List<String> list;	
@@ -30,16 +31,16 @@ public class TestControlStringShowList
 	/** 正しい出力内容 */
 	String expected;
     
-    public TestControlStringShowList( String testName ){
+    public TestCharacterEnumeratorShowList(String testName ){
         super( testName );
     }
 
     public static Test suite(){
-        return new TestSuite( TestControlStringShowList.class );
+        return new TestSuite( TestCharacterEnumeratorShowList.class );
     }
     
     protected void setUp() {
-    	testCS = new ControlString();
+    	testCS = new CharacterEnumerator();
     	list = new ArrayList<>();
     	out = new ByteArrayOutputStream();
     	System.setOut(new PrintStream(out));
@@ -79,7 +80,7 @@ public class TestControlStringShowList
     	
     	/* 入力文字数がxのときの表示リスト数はMAX! (MAXの階乗)*/
     	
-    	int listNum = Constants.factorial(ControlString.MAX_INPUT_SIZE);
+    	int listNum = Constants.factorial(CharacterEnumerator.MAX_INPUT_SIZE);
     	
     	for (int i = 0; i < listNum; i++) {
     		list.add(TEST_STRING);
@@ -97,7 +98,7 @@ public class TestControlStringShowList
     	
     	/* リスト表示メソッドshowListに表示上限はないので、正常に表示される */
     	
-    	int listNum = Constants.factorial(ControlString.MAX_INPUT_SIZE) + 1;
+    	int listNum = Constants.factorial(CharacterEnumerator.MAX_INPUT_SIZE) + 1;
     	for (int i = 0; i < listNum; i++) {
     		list.add(TEST_STRING);
     		expected += TEST_STRING + System.lineSeparator();
@@ -122,11 +123,11 @@ public class TestControlStringShowList
     	
     	/* 入力文字数最大値のとき(abcde...の繰り返しをMAX_INPUT_SIZE文字) */
     	
-    	list.add(Constants.MakeABCString(ControlString.MAX_INPUT_SIZE));
+    	list.add(Constants.MakeABCString(CharacterEnumerator.MAX_INPUT_SIZE));
     	
     	/* 入力文字数最大値 + 1のとき(abcde...の繰り返しを(MAX_INPUT_SIZE + 1)文字) */
     	
-    	list.add(Constants.MakeABCString(ControlString.MAX_INPUT_SIZE));
+    	list.add(Constants.MakeABCString(CharacterEnumerator.MAX_INPUT_SIZE));
     	
     	/* 半角英数字以外の文字が含まれるとき */
     	
