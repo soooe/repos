@@ -46,10 +46,6 @@ public class TestControlStringShowList
     	expected = "";
     }
     
-    protected void tearDown() {
-    	list.clear();
-    }
-    
     /**
      * リストがnullのとき
      */
