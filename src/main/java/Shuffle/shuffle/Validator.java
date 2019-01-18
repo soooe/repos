@@ -2,7 +2,6 @@ package Shuffle.shuffle;
 
 public class Validator {
 
-    public static final String TARGET_STR = "シャッフル対象文字列:";
     public static final String ERROR_INPUT_NULL = "エラー!入力がnullです";
     public static final String ERROR_EMPTY_STRING = "エラー!入力が空文字列です";
     public static final String ERROR_INPUT_SIZE_OVER = "エラー!入力文字数がオーバーしています。最大文字数:";

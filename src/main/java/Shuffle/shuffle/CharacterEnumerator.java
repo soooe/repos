@@ -1,10 +1,7 @@
 package Shuffle.shuffle;
 
-import Shuffle.shuffle.Message;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
 
 /**
  * 文字列を処理するクラス

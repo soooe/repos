@@ -12,7 +12,7 @@ public class App {
     public static void main(String[] args) {
 
         /* ユーザの入力を受け付ける */
-        System.out.println(Message.REQUEST_INPUT);
+        System.out.println("シャッフル対象文字列: ");
         final Scanner scanner = new Scanner(System.in);
         final String userInput = scanner.next();
         scanner.close();
