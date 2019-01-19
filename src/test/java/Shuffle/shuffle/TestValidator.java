@@ -1,14 +1,8 @@
 package Shuffle.shuffle;
 
-import java.util.List;
-
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 
 public class TestValidator {
 

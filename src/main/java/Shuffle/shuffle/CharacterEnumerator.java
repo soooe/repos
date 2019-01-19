@@ -28,7 +28,7 @@ public class CharacterEnumerator {
         for (int i = 0; i < candidates.length(); i++) {
             enumerateCombination(
                     fixed + candidates.charAt(i),
-                    candidates.substring(0, i) + candidates.substring(i+1),
+                    candidates.substring(0, i) + candidates.substring(i + 1),
                     buffer);
         }
     }
