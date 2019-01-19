@@ -1,6 +1,5 @@
 package Shuffle.shuffle;
 
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -32,7 +31,7 @@ public class App {
 
         /* 入力された文字列のシャッフルパターンをリストアップ */
         CharacterEnumerator
-                .shuffleString(userInput)
+                .enumerateCombination(userInput)
                 .stream()
                 .forEach(System.out::println);
     }
