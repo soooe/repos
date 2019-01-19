@@ -7,9 +7,9 @@ public class Validator {
     public static final String ERROR_INPUT_SIZE_OVER = "エラー!入力文字数がオーバーしています。最大文字数:";
     public static final String ERROR_ILLEGAL_CHARACTERS = "エラー!入力に半角英数字以外の文字が含まれています";
 
-    private int maxInputSize;
+    private long maxInputSize;
 
-    public Validator(final int maxInputSize) {
+    public Validator(final long maxInputSize) {
         this.maxInputSize = maxInputSize;
     }
 
