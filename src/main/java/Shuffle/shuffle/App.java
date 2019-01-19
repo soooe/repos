@@ -31,10 +31,10 @@ public class App {
         (new Validator(MAX_INPUT_SIZE)).validate(userInput);
 
         /* 入力された文字列のシャッフルパターンをリストアップ */
-        List<String> retList = CharacterEnumerator.shuffleString(userInput);
-
-        /* シャッフルパターンリストの表示 */
-        retList.stream().forEach(System.out::println);
+        CharacterEnumerator
+                .shuffleString(userInput)
+                .stream()
+                .forEach(System.out::println);
     }
 
 }
