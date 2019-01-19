@@ -1,5 +1,8 @@
 package Shuffle.shuffle;
 
+/**
+ * ユーザー入力値のバリデーションを行うクラス。
+ */
 public class Validator {
 
     public static final String ERROR_INPUT_NULL = "エラー!入力がnullです";
@@ -9,10 +12,19 @@ public class Validator {
 
     private long maxInputSize;
 
+    /**
+     * @param maxInputSize : 最大何文字までの入力を許可するか
+     */
     public Validator(final long maxInputSize) {
         this.maxInputSize = maxInputSize;
     }
 
+    /**
+     * ユーザー入力値に対してバリデーションを行う。
+     *
+     * @param inputStr : ユーザー入力の文字列
+     * @throws IllegalArgumentException : バリデーション失敗時
+     */
     public void validate(String inputStr) throws IllegalArgumentException {
         if (inputStr == null) {
             fail(ERROR_INPUT_NULL);

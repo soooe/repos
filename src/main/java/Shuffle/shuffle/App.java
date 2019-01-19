@@ -15,8 +15,10 @@ import java.util.Scanner;
  */
 public class App {
 
+    /** バリデーション時何文字までの入力を許可するか */
     private static final long MAX_INPUT_SIZE = 100;
 
+    /** エントリーポイント */
     public static void main(String[] args) {
 
         /* ユーザの入力を受け付ける */
