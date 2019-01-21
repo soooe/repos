@@ -38,12 +38,7 @@ public class ControlString {
 	 */
 	public List<String> shuffleString(String inputStr){
 		
-		List<String> allShuffledList = new ArrayList<>();
-		
-		/* 入力文字列が適正でなければ終了 */
-		
-		if (!isInputRight(inputStr)) {return allShuffledList;}
-		System.out.println(Message.TARGET_STR + inputStr);
+		final List<String> allShuffledList = new ArrayList<>();
 		
 		/* 文字列をシャッフルする */
 		
@@ -104,39 +99,6 @@ public class ControlString {
 			targetStrTmp = targetStrTmp.substring(1);
 			if (!shuffleStringPart(startStrTmp, targetStrTmp, result)) {return false;}
 		}
-		
-		return true;
-	}
-	
-	/**
-	 * ユーザの入力文字列が適切か判定
-	 * @param[in] inputStr 入力文字列
-	 * @return 文字列が適切か
-	 */
-	private boolean isInputRight(String inputStr) {
-		
-		/* 入力がnullならエラー */
-		
-		if (inputStr == null) {
-			System.out.println(Message.ERROR_INPUT_NULL);
-			return false;
-		}
-		
-		/* 文字数が最大値を超えていたらエラー */
-		
-		if (MAX_INPUT_SIZE < inputStr.length()) {
-			System.out.println(Message.ERROR_INPUT_SIZE_OVER + MAX_INPUT_SIZE);
-			return false;
-		}
-		
-		/* 文字数が1以下、または半角英数字以外の文字が含まれていたらエラー */
-		
-		if (!(inputStr.matches("[0-9a-zA-Z]+"))) {
-			System.out.println(Message.ERROR_INPUT_TYPE);
-			return false;
-		}
-		
-		/* それ以外ならエラーでない */
 		
 		return true;
 	}

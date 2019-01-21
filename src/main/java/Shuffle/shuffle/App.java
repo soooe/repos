@@ -9,14 +9,21 @@ import java.util.Scanner;
  */
 public class App {
 
+	/** バリデーション時、何文字までの入力を許可するか */
+	private static final int MAX_INPUT_SIZE = 10;
+	
 	public static void main(String[] args) {
 		
 		/* ユーザの入力を受け付ける */
 		
-		System.out.println(Message.REQUEST_INPUT);
-		Scanner scan = new Scanner(System.in);
-		String usrInput = scan.next();
+		System.out.println(Validator.REQUEST_INPUT);
+		final Scanner scan = new Scanner(System.in);
+		final String usrInput = scan.next();
 		scan.close();
+		
+		/* 入力値チェック */
+		
+		(new Validator(MAX_INPUT_SIZE)).validate(usrInput);
 		
 		/* 入力された文字列のシャッフルパターンをリストアップ */
 		
