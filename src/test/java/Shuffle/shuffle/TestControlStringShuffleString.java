@@ -13,8 +13,6 @@ import static org.hamcrest.Matchers.*;
 public class TestControlStringShuffleString 
     extends TestCase
 {	
-	/** テスト対象クラスのオブジェクト */
-	private ControlString testCS;	
 	
 	/** シャッフル結果格納用リスト */
 	List<String> retList;
@@ -29,15 +27,11 @@ public class TestControlStringShuffleString
         return new TestSuite( TestControlStringShuffleString.class );
     }
     
-    protected void setUp() {
-    	testCS = new ControlString();
-    }
-    
     /**
      * 引数が空文字のとき
      */
     public void testEmptyString() {
-    	retList = testCS.shuffleString("");
+    	retList = ControlString.shuffleString("");
     	assertThat(
 				retList, 
 				is(containsInAnyOrder("")));
@@ -47,7 +41,7 @@ public class TestControlStringShuffleString
      * 引数が1文字のとき
      */
     public void testString1() {
-    	retList = testCS.shuffleString("a");
+    	retList = ControlString.shuffleString("a");
     	assertThat(
 				retList, 
 				is(containsInAnyOrder("a")));
@@ -60,14 +54,14 @@ public class TestControlStringShuffleString
     	
     	/* 同一の文字のとき */
     	
-    	retList = testCS.shuffleString("aa");
+    	retList = ControlString.shuffleString("aa");
     	assertThat(
 				retList, 
 				is(containsInAnyOrder("aa")));
     	
     	/* 異なる文字のとき */
     	
-    	retList = testCS.shuffleString("ab");
+    	retList = ControlString.shuffleString("ab");
     	assertThat(
 				retList, 
 				is(containsInAnyOrder("ab", "ba")));
@@ -81,21 +75,21 @@ public class TestControlStringShuffleString
     	
     	/* 全て同一の文字のとき */
     	
-    	retList = testCS.shuffleString("aaa");
+    	retList = ControlString.shuffleString("aaa");
     	assertThat(
 				retList, 
 				is(containsInAnyOrder("aaa")));
     	
     	/* 異なる文字を1つだけ含むとき */
     	
-    	retList = testCS.shuffleString("aab");
+    	retList = ControlString.shuffleString("aab");
     	assertThat(
 				retList, 
 				is(containsInAnyOrder("aab", "aba", "baa")));
     	
     	/* 全て異なる文字のとき */
     	
-    	retList = testCS.shuffleString("abc");
+    	retList = ControlString.shuffleString("abc");
     	assertThat(
 				retList, 
 				is(containsInAnyOrder("abc", "acb", "bac", "bca", "cab", "cba")));

@@ -1,6 +1,5 @@
 package Shuffle.shuffle;
 
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -16,7 +15,7 @@ public class App {
 		
 		/* ユーザの入力を受け付ける */
 		
-		System.out.println(Validator.REQUEST_INPUT);
+		System.out.println("シャッフル対象文字列 : ");
 		final Scanner scan = new Scanner(System.in);
 		final String usrInput = scan.next();
 		scan.close();
@@ -27,12 +26,10 @@ public class App {
 		
 		/* 入力された文字列のシャッフルパターンをリストアップ */
 		
-		ControlString cs = new ControlString();
-		List<String> retList = cs.shuffleString(usrInput);
-		
-		/* シャッフルパターンリストの表示 */
-		
-		retList.stream().forEach(System.out::println);
+		ControlString
+			.shuffleString(usrInput)
+			.stream()
+			.forEach(System.out::println);
 		
 	}
 	

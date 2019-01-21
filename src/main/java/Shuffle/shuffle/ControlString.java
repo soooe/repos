@@ -22,10 +22,6 @@ import java.util.Arrays;
 */
 public class ControlString {
 	
-	/** 入力最大文字数 */
-	public static final int MAX_INPUT_SIZE = 10;	
-
-
 	/**
 	 * 任意の文字列に対し、その順序を入れ替えることでできる全ての文字列パターンを列挙する<br>
 	 * 次のいずれかの場合は空リストが返る<br>
@@ -36,7 +32,7 @@ public class ControlString {
 	 * @param inputStr 入力文字列
 	 * @return 全ての文字列リスト
 	 */
-	public List<String> shuffleString(String inputStr){
+	public static List<String> shuffleString(String inputStr){
 		
 		final List<String> allShuffledList = new ArrayList<>();
 		
@@ -61,7 +57,7 @@ public class ControlString {
 	 * @param result シャッフル結果の文字列リスト
 	 * @return 関数の結果(引数がnullのときfalse)
 	 */
-	private boolean shuffleStringPart(String startStr, String targetStr, List<String> result){
+	private static boolean shuffleStringPart(String startStr, String targetStr, List<String> result){
 		
 		/* 
 		 * シャッフル対象文字列が1文字の場合、先頭文字列をつけてリストに追加して終了
