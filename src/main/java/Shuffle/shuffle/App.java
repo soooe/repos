@@ -32,10 +32,7 @@ public class App {
 		
 		/* シャッフルパターンリストの表示 */
 		
-		if (!cs.showList(retList)) {return;}
-		retList.clear();
-		
-		return;
+		retList.stream().forEach(System.out::println);
 		
 	}
 	

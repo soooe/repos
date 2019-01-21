@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestControlStringShowList.class/*, TestControlStringShuffleString.class*/ })
+@SuiteClasses({ TestControlStringShuffleString.class })
 public class AllTests {
 
 }
