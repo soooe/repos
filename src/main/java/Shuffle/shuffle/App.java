@@ -15,14 +15,23 @@ public class App {
 		
 		/* ユーザの入力を受け付ける */
 		
-		System.out.println("シャッフル対象文字列 : ");
-		final Scanner scan = new Scanner(System.in);
-		final String usrInput = scan.next();
+		String usrInput = "";
+		Scanner scan = new Scanner(System.in);
+		while (true) {
+			
+			System.out.println("シャッフル対象文字列 : ");
+			scan = new Scanner(System.in);
+			usrInput = scan.next();
+			
+			try {
+				(new Validator(MAX_INPUT_SIZE)).validate(usrInput);
+				break;
+			}
+			catch (IllegalArgumentException e){
+				System.out.println(e.getMessage());
+			}
+		}
 		scan.close();
-		
-		/* 入力値チェック */
-		
-		(new Validator(MAX_INPUT_SIZE)).validate(usrInput);
 		
 		/* 入力された文字列のシャッフルパターンをリストアップ */
 		
