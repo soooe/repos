@@ -35,8 +35,8 @@ public class App {
 		
 		/* 入力された文字列のシャッフルパターンをリストアップ */
 		
-		ControlString
-			.shuffleString(usrInput)
+		CharacterEnumerator
+			.enumerateCombination(usrInput)
 			.stream()
 			.forEach(System.out::println);
 		
