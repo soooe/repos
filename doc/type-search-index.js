@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"AllTests","h":"","u":""},{"l":"App","h":"","u":""},{"l":"CharacterEnumerator","h":"","u":""},{"l":"TestCharacterEnumerator","h":"","u":""},{"l":"Validator","h":"","u":""},{"l":"すべてのクラス","h":"","u":"allclasses-index.html"}]
