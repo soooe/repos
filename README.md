@@ -11,6 +11,7 @@ Enumerate all combination from given string.
 
 ## Execute the App
 ```bash
+$mvn compile
 $mvn exec:java
 ```
 ## Run unit tests
