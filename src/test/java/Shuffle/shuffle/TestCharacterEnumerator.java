@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * 文字列シャッフル機能の単体テストクラス
@@ -95,7 +95,7 @@ public class TestCharacterEnumerator
      */
     public void testOutputListSize() {
     	final String inputStr = "12345";
-    	Set<String> retBuffer = CharacterEnumerator.enumerateCombination(inputStr);
+    	List<String> retBuffer = CharacterEnumerator.enumerateCombination(inputStr);
     	assertThat(
     			factorial(inputStr.length()),
     			is(equalTo(retBuffer.size())));
