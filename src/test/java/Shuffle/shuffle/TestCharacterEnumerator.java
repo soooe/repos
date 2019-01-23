@@ -1,6 +1,6 @@
 package Shuffle.shuffle;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
@@ -10,7 +10,6 @@ import java.util.List;
  * 文字列シャッフル機能の単体テストクラス
 */
 public class TestCharacterEnumerator 
-    extends TestCase
 {	
 	/**
 	 * 入出力の検証を行う
@@ -41,36 +40,40 @@ public class TestCharacterEnumerator
 	/**
 	 * 空文字列のとき
 	 */
-    public void testEmptyString() {
+	@Test
+    public void inputIsEmptyString() {
     	check("", "");
     }
     
     /**
      * 引数が1文字のとき
      */
-    public void testString1() {
+	@Test
+    public void inputHasSingleCharacter() {
     	check("a", "a");
     }
     
     /**
-     * 引数が2文字のとき
+     * 引数が2文字でかつ異なる文字のとき
      */
-    public void testString2() {
-    	
-    	/* 同一の文字のとき */
-    	
-    	check("aa", "aa");
-    	
-    	/* 異なる文字のとき */
-    	
+	@Test
+    public void inputHasTwoDifferentCharacter() {
     	check("ab", "ab", "ba");
-    	
     }
+	
+	/**
+	 * 引数が2文字でかつ同一の文字のとき
+	 */
+	@Test
+	public void inputHasTwoSameCharacter() {
+		check("aa", "aa");
+	}
     
     /**
      * 引数が3文字のとき
      */
-    public void testString3() {
+	@Test
+    public void inputHasThreeCharacter() {
     	
     	/* 全て同一の文字のとき */
     	
@@ -93,7 +96,8 @@ public class TestCharacterEnumerator
     /**
      * 重複する文字を含まない文字列を入力した場合のリストの数 = 文字列の階乗
      */
-    public void testOutputListSize() {
+	@Test
+    public void sizeOfOutputList() {
     	final String inputStr = "12345";
     	List<String> retBuffer = CharacterEnumerator.enumerateCombination(inputStr);
     	assertThat(

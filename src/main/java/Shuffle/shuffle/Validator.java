@@ -6,9 +6,9 @@ package Shuffle.shuffle;
 public class Validator {
 	
 	public static final String ERROR_INPUT_NULL = "エラー!入力がnullです";
-	public static final String ERROR_INPUT_0 = "エラー!入力が空文字列です";
+	public static final String ERROR_INPUT_EMPTY = "エラー!入力が空文字列です";
 	public static final String ERROR_INPUT_SIZE_OVER = "エラー!入力文字数がオーバーしています。最大文字数:";
-	public static final String ERROR_INPUT_TYPE = "エラー!入力に半角英数字以外の文字が含まれています";
+	public static final String ERROR_ILLEGAL_CHARACTERS = "エラー!入力に半角英数字以外の文字が含まれています";
 	
 	/** 入力最大文字数 */
 	private int maxInputSize;
@@ -32,7 +32,7 @@ public class Validator {
 		}
 		
 		if (inputStr.isEmpty()) {
-			fail(ERROR_INPUT_0);
+			fail(ERROR_INPUT_EMPTY);
 		}
 		
 		if (maxInputSize < inputStr.length()) {
@@ -40,7 +40,7 @@ public class Validator {
 		}
 		
 		if (!(inputStr.matches("[0-9a-zA-Z]+"))) {
-			fail(ERROR_INPUT_TYPE);
+			fail(ERROR_ILLEGAL_CHARACTERS);
 		}
 		
 	}
