@@ -41,5 +41,5 @@ public class App {
 			.forEach(System.out::println);
 		
 	}
-	
+
 }
